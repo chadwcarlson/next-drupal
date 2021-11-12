@@ -37,9 +37,11 @@
     "drupal/next": "1.0.x-dev",
     "drupal/paragraphs": "^1.12",
     "drupal/pathauto": "^1.8",
+    "drupal/redis": "^1.5",
     "drupal/simple_oauth": "^5.0",
     "drupal/subrequests": "^3.0",
-    "drush/drush": "^10.3",
+    "drush/drush": "^10.6",
+    "platformsh/config-reader": "^2.4",
     "vlucas/phpdotenv": "^4.0",
     "webflo/drupal-finder": "^1.0.0",
     "zaporylie/composer-drupal-optimizations": "^1.0"
