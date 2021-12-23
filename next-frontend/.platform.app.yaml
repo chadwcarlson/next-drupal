@@ -1,0 +1,44 @@
+# .platform.app.yaml
+
+# The name of this application, which must be unique within a project.
+name: app
+
+# The type key specifies the language and version for your application.
+type: 'nodejs:14'
+
+variables:
+    env:
+        NODE_OPTIONS: --max-old-space-size=1536
+size: L
+resources:
+    base_memory: 1024
+    memory_ratio: 1024
+
+dependencies:
+    nodejs:
+        yarn: "^1.22.0"
+
+# The hooks that will be triggered when the package is deployed.
+hooks:
+    # The build hook runs after yarn has been downloaded.
+    # No services are available but the disk is writeable.
+    build: |
+        cp .env.example .env
+        cp .env.example .env.local
+        yarn --frozen-lockfile
+    post_deploy: yarn run build
+
+# The configuration of the application when it is exposed to the web.
+web:
+    commands:
+        start: npx next start -p $PORT
+
+# The size of the persistent disk of the application (in MB).
+disk: 512
+
+# The mounts that will be performed when the package is deployed.
+mounts:
+    # Next.js will try to cache files, so it must be writeable.
+    '/.next':
+        source: local
+        source_path: 'next'

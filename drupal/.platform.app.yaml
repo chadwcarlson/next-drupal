@@ -84,6 +84,14 @@ hooks:
         drush -y updatedb
         drush -y config-import
 
+        # if first deploy
+        # 1. (Add Next.js module) composer require drupal/next:1.0.x-dev
+        # 2. (Enable Next.js) drush enable Next.JS & Next.JS JSON API modules
+        # 3. (Add Next.js site on Drupal side)
+        # 4. (Path auto path aliases)
+        # 5. (OAuth consumer preview route & Site resolver)
+        # 
+
 # The configuration of app when it is exposed to the web.
 web:
     locations:
